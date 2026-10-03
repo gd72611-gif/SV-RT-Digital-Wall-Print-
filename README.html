@@ -1,0 +1,843 @@
+# SV-RT-Digital-Wall-Print-
+SV RT Digital Wall Print office wedsite 
+ওয়েবসাইটে ভাষা পরিবর্তনের অপশনটি যোগ করে দিচ্ছি।```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVRT Digital Wall Print | Custom Vertical Wall Art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #ff5e36;
+--primary-hover: #e04822;
+--secondary: #ffd200;
+--dark: #0f172a;
+--dark-card: #1e293b;
+--light-bg: #f8fafc;
+--text-main: #334155;
+--text-heading: #0f172a;
+--border-color: #e2e8f0;
+--gradient-accent: linear-gradient(135deg, #ff5e36 0%, #ff9900 100%);
+--shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+--shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+body {
+font-family: 'Plus Jakarta Sans', 'Noto Sans Bengali', 'Noto Sans Devanagari', sans-serif;
+color: var(--text-main);
+background-color: var(--light-bg);
+line-height: 1.6;
+scroll-behavior: smooth;
+}
+header {
+position: sticky;
+top: 0;
+z-index: 1000;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--border-color);
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px 6%;
+}
+.logo {
+font-size: 1.5rem;
+font-weight: 800;
+background: var(--gradient-accent);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-decoration: none;
+letter-spacing: -0.5px;
+}
+.header-actions {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+nav {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+nav a {
+text-decoration: none;
+color: var(--text-heading);
+font-weight: 600;
+font-size: 0.92rem;
+transition: color 0.25s ease;
+}
+nav a:hover {
+color: var(--primary);
+}
+.lang-picker {
+position: relative;
+display: inline-block;
+}
+.lang-select {
+appearance: none;
+background: #fff;
+border: 1.5px solid var(--border-color);
+border-radius: 8px;
+padding: 8px 30px 8px 12px;
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--text-heading);
+cursor: pointer;
+font-family: inherit;
+outline: none;
+transition: border-color 0.2s ease;
+}
+.lang-select:focus {
+border-color: var(--primary);
+}
+.lang-picker::after {
+content: '▾';
+position: absolute;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+pointer-events: none;
+color: #64748b;
+font-size: 0.8rem;
+}
+.btn-nav {
+background: var(--gradient-accent);
+color: #fff !important;
+padding: 9px 20px;
+border-radius: 50px;
+font-size: 0.88rem;
+box-shadow: 0 4px 12px rgba(255, 94, 54, 0.25);
+transition: transform 0.2s ease;
+}
+.btn-nav:hover {
+transform: translateY(-2px);
+}
+.hero {
+background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.88)),
+url('https://images.unsplash.com/photo-1549443248-8cff22b84f90?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+color: #ffffff;
+padding: 120px 20px;
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.hero h1 {
+font-size: 3.2rem;
+font-weight: 800;
+max-width: 850px;
+line-height: 1.25;
+margin-bottom: 20px;
+letter-spacing: -0.5px;
+}
+.hero p {
+font-size: 1.15rem;
+max-width: 650px;
+margin-bottom: 35px;
+color: #cbd5e1;
+}
+.btn-hero {
+background: var(--gradient-accent);
+color: #fff;
+padding: 16px 36px;
+border-radius: 50px;
+font-size: 1.05rem;
+font-weight: 700;
+text-decoration: none;
+box-shadow: 0 6px 20px rgba(255, 94, 54, 0.35);
+transition: transform 0.2s ease;
+display: inline-block;
+}
+.btn-hero:hover {
+transform: translateY(-3px);
+}
+.section {
+padding: 85px 6%;
+max-width: 1280px;
+margin: 0 auto;
+}
+.section-header {
+text-align: center;
+margin-bottom: 50px;
+}
+.section-tag {
+font-size: 0.85rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+color: var(--primary);
+margin-bottom: 8px;
+display: block;
+}
+.section-title {
+font-size: 2.3rem;
+font-weight: 800;
+color: var(--text-heading);
+letter-spacing: -0.5px;
+}
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 25px;
+}
+.service-card {
+background: #ffffff;
+border-radius: 18px;
+padding: 35px 28px;
+border: 1px solid var(--border-color);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: var(--shadow-sm);
+}
+.service-card:hover {
+transform: translateY(-6px);
+box-shadow: var(--shadow-lg);
+border-color: rgba(255, 94, 54, 0.3);
+}
+.service-icon {
+width: 55px;
+height: 55px;
+background: #fff4ed;
+color: var(--primary);
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 12px;
+margin-bottom: 20px;
+font-size: 1.4rem;
+font-weight: bold;
+}
+.service-card h3 {
+font-size: 1.3rem;
+color: var(--text-heading);
+margin-bottom: 12px;
+font-weight: 700;
+}
+.service-card p {
+color: #64748b;
+font-size: 0.95rem;
+line-height: 1.65;
+margin-bottom: 15px;
+}
+.surface-list {
+font-size: 0.85rem;
+color: #475569;
+background: #f1f5f9;
+padding: 10px 12px;
+border-radius: 8px;
+}
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 25px;
+}
+.gallery-card {
+background: #ffffff;
+border-radius: 16px;
+overflow: hidden;
+border: 1px solid var(--border-color);
+box-shadow: var(--shadow-sm);
+}
+.gallery-media {
+height: 230px;
+background-color: #e2e8f0;
+overflow: hidden;
+}
+.gallery-media img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.video-placeholder {
+background: var(--dark-card);
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #ffffff;
+text-align: center;
+padding: 20px;
+}
+.play-icon {
+width: 46px;
+height: 46px;
+border-radius: 50%;
+background: var(--primary);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 10px;
+}
+.gallery-info {
+padding: 18px;
+}
+.gallery-info h4 {
+font-size: 1.05rem;
+color: var(--text-heading);
+margin-bottom: 4px;
+}
+.gallery-info p {
+font-size: 0.85rem;
+color: #64748b;
+}
+.booking-wrapper {
+background: #ffffff;
+border-radius: 20px;
+border: 1px solid var(--border-color);
+box-shadow: var(--shadow-lg);
+max-width: 680px;
+margin: 0 auto;
+padding: 40px;
+}
+.form-group {
+margin-bottom: 20px;
+text-align: left;
+}
+.form-group label {
+display: block;
+font-weight: 600;
+color: var(--text-heading);
+margin-bottom: 7px;
+font-size: 0.92rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+padding: 13px 15px;
+border: 1.5px solid var(--border-color);
+border-radius: 10px;
+font-size: 0.92rem;
+font-family: inherit;
+color: var(--text-heading);
+background: #fff;
+transition: border-color 0.2s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: var(--primary);
+}
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 15px;
+}
+.payment-box {
+background: #fffdf4;
+border: 1.5px dashed #eab308;
+border-radius: 14px;
+padding: 22px;
+text-align: center;
+margin-bottom: 20px;
+}
+.payment-box h4 {
+color: var(--text-heading);
+margin-bottom: 6px;
+font-size: 1.05rem;
+}
+.payment-box p {
+font-size: 0.88rem;
+color: #64748b;
+margin-bottom: 12px;
+}
+.qr-placeholder {
+width: 130px;
+height: 130px;
+background: #ffffff;
+border: 1px solid var(--border-color);
+margin: 0 auto 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 700;
+color: #64748b;
+font-size: 0.8rem;
+border-radius: 6px;
+}
+.upi-id-badge {
+display: inline-block;
+background: #f1f5f9;
+padding: 6px 14px;
+border-radius: 20px;
+font-weight: 600;
+font-size: 0.85rem;
+color: var(--dark);
+border: 1px solid var(--border-color);
+}
+.btn-submit {
+width: 100%;
+background: var(--gradient-accent);
+color: #ffffff;
+font-weight: 700;
+font-size: 1rem;
+padding: 15px;
+border-radius: 10px;
+border: none;
+cursor: pointer;
+transition: transform 0.2s ease;
+margin-top: 5px;
+}
+.btn-submit:hover {
+transform: translateY(-2px);
+}
+footer {
+background: var(--dark);
+color: #94a3b8;
+padding: 60px 6% 30px;
+border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.footer-grid {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr;
+gap: 40px;
+max-width: 1280px;
+margin: 0 auto 40px;
+}
+.footer-brand h2 {
+color: #ffffff;
+font-size: 1.5rem;
+margin-bottom: 12px;
+}
+.footer-brand p {
+max-width: 360px;
+font-size: 0.9rem;
+line-height: 1.6;
+}
+.footer-links h4, .footer-contact h4 {
+color: #ffffff;
+font-size: 1rem;
+margin-bottom: 15px;
+}
+.footer-links ul {
+list-style: none;
+}
+.footer-links li {
+margin-bottom: 10px;
+}
+.footer-links a {
+color: #94a3b8;
+text-decoration: none;
+}
+.footer-links a:hover {
+color: var(--primary);
+}
+.footer-contact p {
+margin-bottom: 8px;
+font-size: 0.9rem;
+}
+.footer-bottom {
+text-align: center;
+padding-top: 25px;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+font-size: 0.85rem;
+}
+@media (max-width: 860px) {
+header {
+flex-direction: column;
+gap: 12px;
+padding: 15px;
+}
+.header-actions {
+flex-wrap: wrap;
+justify-content: center;
+gap: 12px;
+}
+nav {
+flex-wrap: wrap;
+justify-content: center;
+}
+.hero h1 {
+font-size: 2.2rem;
+}
+.form-row {
+grid-template-columns: 1fr;
+}
+.booking-wrapper {
+padding: 25px 20px;
+}
+.footer-grid {
+grid-template-columns: 1fr;
+gap: 30px;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="#home" class="logo">SVRT Digital Wall Print</a>
+<div class="header-actions">
+<nav>
+<a href="#home" data-i18n="nav_home">Home</a>
+<a href="#services" data-i18n="nav_services">Services</a>
+<a href="#gallery" data-i18n="nav_gallery">Demo Gallery</a>
+<a href="#booking" data-i18n="nav_booking">Booking</a>
+<a href="#contact" class="btn-nav" data-i18n="nav_contact">Contact Us</a>
+</nav>
+<div class="lang-picker">
+<select id="languageSwitcher" class="lang-select" onchange="changeLanguage(this.value)">
+<option value="en" selected>English</option>
+<option value="bn">বাংলা (Bengali)</option>
+<option value="hi">हिन्दी (Hindi)</option>
+</select>
+</div>
+</div>
+</header>
+<section class="hero" id="home">
+<h1 data-i18n="hero_title">Transform Your Walls with Direct Digital Art</h1>
+<p data-i18n="hero_subtitle">Premium 3D & custom vertical wall printing for modern homes, corporate offices, and business venues.</p>
+<a href="#booking" class="btn-hero" data-i18n="hero_btn">Book Your Print Service</a>
+</section>
+<section class="section" id="services">
+<div class="section-header">
+<span class="section-tag" data-i18n="services_tag">What We Offer</span>
+<h2 class="section-title" data-i18n="services_heading">Our Printing Solutions & Surfaces</h2>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">⌂</div>
+<h3 data-i18n="card1_title">Home Decor Wall Art</h3>
+<p data-i18n="card1_desc">Add vibrant life and depth to living rooms, bedrooms, and lounges with high-definition custom murals and abstract accents.</p>
+<div class="surface-list">
+<strong data-i18n="surface_label">Compatible Surfaces:</strong> <span data-i18n="card1_surfaces">Plastered walls, concrete, brick, wood, tiles</span>
+</div>
+</div>
+<div class="service-card">
+<div class="service-icon">▦</div>
+<h3 data-i18n="card2_title">Office Space Branding</h3>
+<p data-i18n="card2_desc">Enrich company workplaces with sharp logos, inspirational art, vision statements, and graphics that foster creative work.</p>
+<div class="surface-list">
+<strong data-i18n="surface_label">Compatible Surfaces:</strong> <span data-i18n="card2_surfaces">Glass, metal, acrylic, plastered walls, concrete</span>
+</div>
+</div>
+<div class="service-card">
+<div class="service-icon">★</div>
+<h3 data-i18n="card3_title">Business Customization</h3>
+<p data-i18n="card3_desc">Stand out in cafes, retail stores, hotels, showrooms, and commercial venues with bespoke wall themes.</p>
+<div class="surface-list">
+<strong data-i18n="surface_label">Compatible Surfaces:</strong> <span data-i18n="card3_surfaces">Glass, wood, metal, tiles, acrylic, brick</span>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="gallery" style="background-color: #f1f5f9; border-radius: 24px;">
+<div class="section-header">
+<span class="section-tag" data-i18n="gallery_tag">Portfolio</span>
+<h2 class="section-title" data-i18n="gallery_heading">Demo Gallery & Work Preview</h2>
+</div>
+<div class="gallery-grid">
+<div class="gallery-card">
+<div class="gallery-media">
+<img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&auto=format&fit=crop&q=80" alt="Living Room Mural">
+</div>
+<div class="gallery-info">
+<h4 data-i18n="gal1_title">Living Room Accent Mural</h4>
+<p data-i18n="gal1_desc">3D nature pattern on textured indoor surface.</p>
+</div>
+</div>
+<div class="gallery-card">
+<div class="gallery-media">
+<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=80" alt="Office Wall Art">
+</div>
+<div class="gallery-info">
+<h4 data-i18n="gal2_title">Corporate Office Typography</h4>
+<p data-i18n="gal2_desc">Clean corporate graphic directly printed on drywall.</p>
+</div>
+</div>
+<div class="gallery-card">
+<div class="gallery-media">
+<div class="video-placeholder">
+<div class="play-icon">►</div>
+<p style="font-weight: 600; color: #fff;" data-i18n="gal3_badge">Machine Live Print Demo</p>
+<span style="font-size: 0.8rem; color: #94a3b8;" data-i18n="gal3_sub">High-speed UV direct print action</span>
+</div>
+</div>
+<div class="gallery-info">
+<h4 data-i18n="gal3_title">Wall Printer in Action</h4>
+<p data-i18n="gal3_desc">Live vertical printer demonstration on brick & cement.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="booking">
+<div class="section-header">
+<span class="section-tag" data-i18n="booking_tag">Instant Booking</span>
+<h2 class="section-title" data-i18n="booking_heading">Payment & Service Booking</h2>
+</div>
+<div class="booking-wrapper">
+<form onsubmit="handleBooking(event)">
+<div class="form-row">
+<div class="form-group">
+<label for="name" data-i18n="lbl_name">Full Name</label>
+<input type="text" id="name" data-i18n-placeholder="ph_name" placeholder="John Doe" required>
+</div>
+<div class="form-group">
+<label for="phone" data-i18n="lbl_phone">Phone Number</label>
+<input type="tel" id="phone" data-i18n-placeholder="ph_phone" placeholder="+91 XXXXXXXXXX" required>
+</div>
+</div>
+<div class="form-group">
+<label for="service" data-i18n="lbl_service">Select Service Category</label>
+<select id="service" required>
+<option value="Home Decor" data-i18n="opt_home">Home Decor Wall Art</option>
+<option value="Office Space" data-i18n="opt_office">Office Space Branding</option>
+<option value="Business Customization" data-i18n="opt_business">Commercial & Business Customization</option>
+</select>
+</div>
+<div class="form-group">
+<label for="address" data-i18n="lbl_address">Service Location Address & Live Link</label>
+<textarea id="address" rows="2" data-i18n-placeholder="ph_address" placeholder="Enter full property address or paste Google Maps live location link..." required></textarea>
+</div>
+<div class="payment-box">
+<h4 data-i18n="pay_title">Secure UPI / QR Code Payment Booking</h4>
+<p data-i18n="pay_desc">Scan the QR code via Google Pay, PhonePe, Paytm or use UPI ID to pay the advance amount and complete your booking.</p>
+<div class="qr-placeholder">[ QR CODE ]</div>
+<div>
+<span class="upi-id-badge">UPI ID: svrtprint@oksbi</span>
+</div>
+</div>
+<div class="form-group">
+<label for="utr" data-i18n="lbl_utr">Transaction / UTR Reference Number</label>
+<input type="text" id="utr" data-i18n-placeholder="ph_utr" placeholder="Enter 12-digit UPI transaction reference ID" required>
+</div>
+<button type="submit" class="btn-submit" data-i18n="btn_confirm">Confirm Booking</button>
+</form>
+</div>
+</section>
+<footer id="contact">
+<div class="footer-grid">
+<div class="footer-brand">
+<h2>SVRT Digital Wall Print</h2>
+<p data-i18n="footer_bio">Bringing next-generation vertical UV printing technology directly onto your walls. High resolution, long-lasting, eco-friendly inks for homes, offices, and businesses.</p>
+</div>
+<div class="footer-links">
+<h4 data-i18n="footer_nav_title">Quick Navigation</h4>
+<ul>
+<li><a href="#home" data-i18n="nav_home">Home</a></li>
+<li><a href="#services" data-i18n="nav_services">Our Services</a></li>
+<li><a href="#gallery" data-i18n="nav_gallery">Demo Gallery</a></li>
+<li><a href="#booking" data-i18n="nav_booking">Booking</a></li>
+</ul>
+</div>
+<div class="footer-contact">
+<h4 data-i18n="footer_contact_title">Contact Details</h4>
+<p><strong data-i18n="lbl_phone_alt">Phone:</strong> +91 98765 43210</p>
+<p><strong>Email:</strong> contact@svrtprint.com</p>
+<p><strong data-i18n="lbl_hours">Working Hours:</strong> <span data-i18n="val_hours">Mon - Sat: 9:00 AM - 7:00 PM</span></p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 SVRT Digital Wall Print. <span data-i18n="footer_rights">All rights reserved.</span></p>
+</div>
+</footer>
+<script>
+const translations = {
+en: {
+nav_home: "Home",
+nav_services: "Services",
+nav_gallery: "Demo Gallery",
+nav_booking: "Booking",
+nav_contact: "Contact Us",
+hero_title: "Transform Your Walls with Direct Digital Art",
+hero_subtitle: "Premium 3D & custom vertical wall printing for modern homes, corporate offices, and business venues.",
+hero_btn: "Book Your Print Service",
+services_tag: "What We Offer",
+services_heading: "Our Printing Solutions & Surfaces",
+card1_title: "Home Decor Wall Art",
+card1_desc: "Add vibrant life and depth to living rooms, bedrooms, and lounges with high-definition custom murals and abstract accents.",
+card2_title: "Office Space Branding",
+card2_desc: "Enrich company workplaces with sharp logos, inspirational art, vision statements, and graphics that foster creative work.",
+card3_title: "Business Customization",
+card3_desc: "Stand out in cafes, retail stores, hotels, showrooms, and commercial venues with bespoke wall themes.",
+surface_label: "Compatible Surfaces:",
+card1_surfaces: "Plastered walls, concrete, brick, wood, tiles",
+card2_surfaces: "Glass, metal, acrylic, plastered walls, concrete",
+card3_surfaces: "Glass, wood, metal, tiles, acrylic, brick",
+gallery_tag: "Portfolio",
+gallery_heading: "Demo Gallery & Work Preview",
+gal1_title: "Living Room Accent Mural",
+gal1_desc: "3D nature pattern on textured indoor surface.",
+gal2_title: "Corporate Office Typography",
+gal2_desc: "Clean corporate graphic directly printed on drywall.",
+gal3_badge: "Machine Live Print Demo",
+gal3_sub: "High-speed UV direct print action",
+gal3_title: "Wall Printer in Action",
+gal3_desc: "Live vertical printer demonstration on brick & cement.",
+booking_tag: "Instant Booking",
+booking_heading: "Payment & Service Booking",
+lbl_name: "Full Name",
+ph_name: "John Doe",
+lbl_phone: "Phone Number",
+ph_phone: "+91 XXXXXXXXXX",
+lbl_service: "Select Service Category",
+opt_home: "Home Decor Wall Art",
+opt_office: "Office Space Branding",
+opt_business: "Commercial & Business Customization",
+lbl_address: "Service Location Address & Live Link",
+ph_address: "Enter full property address or paste Google Maps live location link...",
+pay_title: "Secure UPI / QR Code Payment Booking",
+pay_desc: "Scan the QR code via Google Pay, PhonePe, Paytm or use UPI ID to pay the advance amount and complete your booking.",
+lbl_utr: "Transaction / UTR Reference Number",
+ph_utr: "Enter 12-digit UPI transaction reference ID",
+btn_confirm: "Confirm Booking",
+footer_bio: "Bringing next-generation vertical UV printing technology directly onto your walls. High resolution, long-lasting, eco-friendly inks for homes, offices, and businesses.",
+footer_nav_title: "Quick Navigation",
+footer_contact_title: "Contact Details",
+lbl_phone_alt: "Phone:",
+lbl_hours: "Working Hours:",
+val_hours: "Mon - Sat: 9:00 AM - 7:00 PM",
+footer_rights: "All rights reserved.",
+alert_success: "Booking submitted successfully with UPI payment verification!"
+},
+bn: {
+nav_home: "হোম",
+nav_services: "সেবাসমূহ",
+nav_gallery: "ডেমো গ্যালারি",
+nav_booking: "বুকিং",
+nav_contact: "যোগাযোগ",
+hero_title: "আপনার দেয়ালে সরাসরি ডিজিটাল আর্টের ছোঁয়া",
+hero_subtitle: "বাড়ি, কর্পোরেট অফিস এবং ব্যবসায়ের জায়গার জন্য প্রিমিয়াম ৩ডি ও কাস্টমাইজড ভার্টিক্যাল ওয়াল প্রিন্টিং।",
+hero_btn: "প্রিন্ট সার্ভিস বুকিং করুন",
+services_tag: "আমাদের সেবাসমূহ",
+services_heading: "ওয়াল প্রিন্টিং সল্যুশন ও সারফেস",
+card1_title: "হোম ডেকোর ওয়াল আর্ট",
+card1_desc: "হাই-ডেফিনিশন কাস্টম মিউরাল ও নজরকাড়া ডিজাইন দিয়ে বসার ঘর ও শোবার দেয়ালকে করে তুলুন আরও আকর্ষণীয়।",
+card2_title: "অফিস স্পেস ব্র্যান্ডিং",
+card2_desc: "লোগো, অনুপ্রেরণামূলক আর্ট ও ব্র্যান্ড গ্রাফিক্স দিয়ে কাজের পরিবেশকে প্রাণবন্ত ও পেশাদার করুন।",
+card3_title: "বিজনেস কাস্টমাইজেশন",
+card3_desc: "ক্যাফে, রিটেল স্টোর, হোটেল ও শোরুমের দেয়ালে ফুটিয়ে তুলুন আপনার ব্র্যান্ডের নিজস্ব থিম ও আর্ট।",
+surface_label: "উপযুক্ত সারফেস সমূহ:",
+card1_surfaces: "প্লাস্টার করা দেয়াল, কংক্রিট, ইট, কাঠ, টাইলস",
+card2_surfaces: "কাচ, মেটাল, অ্যাক্রিলিক, প্লাস্টার দেয়াল, কংক্রিট",
+card3_surfaces: "কাচ, কাঠ, মেটাল, টাইলস, অ্যাক্রিলিক, ইট",
+gallery_tag: "পোর্টফোলিও",
+gallery_heading: "কাজের ডেমো ও গ্যালারি",
+gal1_title: "লিভিং রুম এক্সেন্ট মিউরাল",
+gal1_desc: "ঘরের ইনডোর সারফেসে জীবন্ত ৩ডি প্রকৃতির ছবি।",
+gal2_title: "কর্পোরেট অফিস টাইপোগ্রাফি",
+gal2_desc: "দেয়ালের ওপর সরাসরি প্রিন্ট করা নিখুঁত গ্রাফিক্স।",
+gal3_badge: "মেশিন লাইভ প্রিন্ট ডেমো",
+gal3_sub: "উচ্চ প্রযুক্তির সরাসরি ইউভি প্রিন্টিং",
+gal3_title: "প্রিন্টারের লাইভ কাজ",
+gal3_desc: "ইট ও সিমেন্টের দেয়ালে সরাসরি ভার্টিক্যাল প্রিন্টিং।",
+booking_tag: "ইনস্ট্যান্ট বুকিং",
+booking_heading: "পেমেন্ট ও সার্ভিস বুকিং",
+lbl_name: "পুরো নাম",
+ph_name: "আপনার নাম লিখুন",
+lbl_phone: "মোবাইল নম্বর",
+ph_phone: "+৯১ XXXXXXXXXX",
+lbl_service: "সার্ভিসের ধরন বেছে নিন",
+opt_home: "হোম ডেকোর ওয়াল আর্ট",
+opt_office: "অফিস স্পেস ব্র্যান্ডিং",
+opt_business: "বিজনেস ও বাণিজ্যিক কাস্টমাইজেশন",
+lbl_address: "লোকেশন অ্যাড্রেস ও লাইভ লোকেশন লিংক",
+ph_address: "সম্পূর্ণ ঠিকানা লিখুন অথবা গুগল ম্যাপের লাইভ লোকেশন লিংক দিন...",
+pay_title: "নিরাপদ ইউপিআই / কিউআর কোড পেমেন্ট বুকিং",
+pay_desc: "Google Pay, PhonePe, Paytm দিয়ে QR কোড স্ক্যান করে অথবা UPI আইডি ব্যবহার করে বুকিং নিশ্চিত করুন।",
+lbl_utr: "ট্রানজ্যাকশন / UTR রেফারেন্স নম্বর",
+ph_utr: "১২ সংখ্যার ইউপিআই রেফারেন্স আইডি দিন",
+btn_confirm: "বুকিং নিশ্চিত করুন",
+footer_bio: "সর্বাধুনিক প্রযুক্তির মাধ্যমে সরাসরি দেয়ালে হাই-রেজোলিউশন ও টেকসই ইউভি কালার প্রিন্টিং সেবা।",
+footer_nav_title: "দ্রুত নেভিগেশন",
+footer_contact_title: "যোগাযোগের ঠিকানা",
+lbl_phone_alt: "ফোন:",
+lbl_hours: "কাজের সময়:",
+val_hours: "সোম - শনি: সকাল ৯:০০ - সন্ধ্যা ৭:০০",
+footer_rights: "সর্বস্বত্ব সংরক্ষিত।",
+alert_success: "ইউপিআই ভেরিফিকেশন সহ বুকিং সফলভাবে জমা হয়েছে!"
+},
+hi: {
+nav_home: "होम",
+nav_services: "सेवाएं",
+nav_gallery: "डेमो गैलरी",
+nav_booking: "बुकिंग",
+nav_contact: "संपर्क करें",
+hero_title: "दीवारों पर डिजिटल आर्ट का आधुनिक रूप",
+hero_subtitle: "घरों, कॉर्पोरेट कार्यालयों और व्यावसायिक स्थलों के लिए प्रीमियम 3D और कस्टम वर्टिकल वॉल प्रिंटिंग।",
+hero_btn: "प्रिंट सर्विस बुक करें",
+services_tag: "हमारी विशेषताएं",
+services_heading: "वॉल प्रिंटिंग सॉल्यूशंस और सर्फेस",
+card1_title: "होम डेकोर वॉल आर्ट",
+card1_desc: "लिविंग रूम और बेडरूम की दीवारों को हाई-डेफिनिशन 3D वॉल आर्ट और शानदार डिज़ाइनों से नया जीवन दें।",
+card2_title: "ऑफिस स्पेस ब्रांडिंग",
+card2_desc: "कंपनी लोगो, प्रेरक आर्ट और विज़न को दीवारों पर उकेर कर कार्यस्थल को जीवंत और प्रोफेशनल बनाएं।",
+card3_title: "बिजनेस कस्टमाइज़ेशन",
+card3_desc: "कैफे, रिटेल स्टोर, होटल और शोरूम के लिए ब्रांड पहचान के अनुसार मनपसंद वॉल आर्ट।",
+surface_label: "सपोर्टेड सर्फेस:",
+card1_surfaces: "प्लास्टर वाली दीवारें, कंक्रीट, ईंट, लकड़ी, टाइल्स",
+card2_surfaces: "कांच, धातु, एक्रिलिक, प्लास्टर दीवारें, कंक्रीट",
+card3_surfaces: "कांच, लकड़ी, धातु, टाइल्स, एक्रिलिक, ईंट",
+gallery_tag: "पोर्टफोलियो",
+gallery_heading: "डेमो गैलरी और काम की झलक",
+gal1_title: "लिविंग रूम एक्सेंट म्यूरल",
+gal1_desc: "अंदरूनी दीवार पर सजीव 3D नेचर डिज़ाइन।",
+gal2_title: "कॉर्पोरेट ऑफिस टाइपोग्राफी",
+gal2_desc: "दीवार पर सीधे प्रिंट किया गया सटीक कॉर् कॉर्पोरेट ग्राफिक।",
+gal3_badge: "मशीन लाइव प्रिंट डेमो",
+gal3_sub: "हाई-स्पीड UV डायरेक्ट प्रिंटिंग",
+gal3_title: "वॉल प्रिंटर का लाइव काम",
+gal3_desc: "ईंट और सीमेंट की दीवार पर वर्टिकल प्रिंटिंग का लाइव प्रदर्शन।",
+booking_tag: "तुरंत बुकिंग",
+booking_heading: "पेमेंट एवं सर्विस बुकिंग",
+lbl_name: "पूरा नाम",
+ph_name: "अपना नाम दर्ज करें",
+lbl_phone: "फ़ोन नंबर",
+ph_phone: "+91 XXXXXXXXXX",
+lbl_service: "सर्विस का प्रकार चुनें",
+opt_home: "होम डेकोर वॉल आर्ट",
+opt_office: "ऑफिस स्पेस ब्रांडिंग",
+opt_business: "कमर्शियल और बिजनेस कस्टमाइज़ेशन",
+lbl_address: "लोकेशन एड्रेस और लाइव लोकेशन लिंक",
+ph_address: "पूरा पता दर्ज करें या गूगल मैप्स लाइव लोकेशन लिंक पेस्ट करें...",
+pay_title: "सुरक्षित UPI / QR कोड पेमेंट बुकिंग",
+pay_desc: "Google Pay, PhonePe, Paytm द्वारा QR कोड स्कैन करें या UPI ID का उपयोग करके एडवांस पेमेंट कर बुकिंग पूरी करें।",
+lbl_utr: "ट्रांजैक्शन / UTR रेफरेंस नंबर",
+ph_utr: "12 अंकों का UPI रेफरेंस नंबर दर्ज करें",
+btn_confirm: "बुकिंग कन्फर्म करें",
+footer_bio: "दीवारों पर सीधे प्रिंट करने वाली अत्याधुनिक UV प्रिंटिंग तकनीक। घरों, कार्यालयों और व्यवसायों के लिए टिकाऊ और पर्यावरण-अनुकूल स्याही।",
+footer_nav_title: "त्वरित लिंक",
+footer_contact_title: "संपर्क विवरण",
+lbl_phone_alt: "फ़ोन:",
+lbl_hours: "कार्य समय:",
+val_hours: "सोम - शनि: सुबह 9:00 - शाम 7:00",
+footer_rights: "सर्वाधिकार सुरक्षित।",
+alert_success: "UPI सत्यापन के साथ आपकी बुकिंग सफलतापूर्वक सबमिट हो गई है!"
+}
+};
+let currentLang = 'en';
+function changeLanguage(lang) {
+currentLang = lang;
+document.documentElement.lang = lang;
+const dict = translations[lang];
+document.querySelectorAll('[data-i18n]').forEach(el => {
+const key = el.getAttribute('data-i18n');
+if (dict[key]) {
+el.textContent = dict[key];
+}
+});
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+const key = el.getAttribute('data-i18n-placeholder');
+if (dict[key]) {
+el.placeholder = dict[key];
+}
+});
+}
+function handleBooking(event) {
+event.preventDefault();
+alert(translations[currentLang].alert_success);
+}
+</script>
+</body>
+</html>
+
